@@ -18,6 +18,6 @@ class Students extends Model
         'experience',
         'coins',
         'email',
-        'passwor',
+        'aaaa',
     ];
 }

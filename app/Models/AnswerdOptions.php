@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model
+class AnswerdOptions extends Model
 {
     use HasFactory;
-    protected $table = 'teachers';
+    protected $table = 'answers_options';
     protected $primaryKey = 'id';
     
     protected $fillable = [
         'name',
-        'dateBirth',
-        'email',
-        'password',
+        'correct',
     ];
 }

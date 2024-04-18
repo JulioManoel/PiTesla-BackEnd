@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Answerd_options extends Model
+class Activitie extends Model
 {
     use HasFactory;
-    protected $table = 'Answers_Options';
+    protected $table = 'activities';
     protected $primaryKey = 'id';
     
     protected $fillable = [
         'name',
-        'correct boolean',
+        'video',
+        'description text',
     ];
 }

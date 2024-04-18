@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('answers_options', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('correct boolean');
+            $table->boolean('correct');
             $table->foreignId('exercises_id')->constrained('exercises');
             $table->timestamps();
         });

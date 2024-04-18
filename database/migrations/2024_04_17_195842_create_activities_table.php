@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description text')->nullable();
+            $table->text('description')->nullable();
             $table->string('video');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();

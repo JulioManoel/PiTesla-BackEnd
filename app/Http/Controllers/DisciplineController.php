@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Discipline;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StudentRequest;
 
@@ -13,8 +13,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::with(['Student'])->get();
-        return response()->json($student, 200);
+        $discipline = Discipline::with(['Discipline'])->get();
+        return response()->json($discipline, 200);
     }
 
     /**
@@ -25,10 +25,10 @@ class StudentController extends Controller
         DB::beginTransaction();
 
         try {
-            $studant = Student::create($request->all());
+            $discipline = Discipline::create($request->all());
 
             DB::commit();
-            return response()->json($student, 201);
+            return response()->json($discipline, 201);
         } catch (\Throwable $e) {
             DB::rollBack();
             return response()->json(['message' => $e->getMessage()], 500);
@@ -40,7 +40,7 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        $newDepartamento = Student::with(['Student'])->find($id);
+        $newDepartamento = Discipline::with(['Discipline'])->find($id);
         return response()->json($newDepartamento, 200);
     }
 
@@ -52,8 +52,8 @@ class StudentController extends Controller
         DB::beginTransaction();
 
         try {
-            $student = Student::find($id);
-            if (empty($departament)) throw new \Exception('Student not found', 404);
+            $student = Discipline::find($id);
+            if (empty($departament)) throw new \Exception('Discipline not found', 404);
 
             $student->update($request->all());
 
@@ -70,9 +70,9 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        $student = Student::find($id);
+        $student = Discipline::find($id);
         if (empty($student)) {
-            return response()->json(['message' => 'Student não encontrado'], 404);
+            return response()->json(['message' => 'Discipline não encontrado'], 404);
         }
 
         $student->delete();

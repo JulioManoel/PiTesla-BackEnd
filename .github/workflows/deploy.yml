@@ -1,0 +1,21 @@
+name: Deploy to cPanel
+
+on: 
+  push: 
+    branches: [ 'main' ]
+  pull_request: 
+    branches: [ 'main' ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Validade comopser.json and composer.lock
+        run: composer validate --strict
+
+      # - name: Copy .env
+      #   run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+

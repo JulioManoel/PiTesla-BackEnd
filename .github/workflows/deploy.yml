@@ -20,7 +20,7 @@ jobs:
       - name: Validade comopser.json and composer.lock
         run: composer validate --strict
 
-      - name: Cache Composer dependencies
+      - name: Cache Composer dependencie
         uses: actions/cache@v3
         with:
           path: /tmp/composer-cache

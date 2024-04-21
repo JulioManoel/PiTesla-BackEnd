@@ -28,13 +28,13 @@ jobs:
           dev: no
           args: -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-      - name: FTP Deploy cPanel
+      - name: FTP Deploy cPane
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          
+
       # - name: Copy .env
       #   run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 

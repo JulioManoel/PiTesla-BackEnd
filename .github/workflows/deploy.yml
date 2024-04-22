@@ -21,10 +21,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Validade comopser.json and composer.lock
+      - name: ✔️ Validade comoposer.json and composer.lock
         run: composer validate --strict
       
-      - name: Install Dependencies
+      - name: 🛠 Install Dependencies
         uses: php-actions/composer@v6
         with:
           dev: no

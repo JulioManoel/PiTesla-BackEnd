@@ -24,8 +24,8 @@ jobs:
       #   run: composer validate --strict
 
       - name: Copy .env.example to .env
-        run: ls
-      #   run: cp .env.example .env
+        # run: ls
+        run: cp .env.example .env
 
       # - name: Replace environment variables in .env
       #   run: |

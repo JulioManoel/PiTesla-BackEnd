@@ -24,20 +24,19 @@ jobs:
       #   run: composer validate --strict
 
       - name: Copy .env.example to .env
-        # run: ls
         run: cp .env.example .env
 
-      # - name: Replace environment variables in .env
-      #   run: |
-      #     sed -i "s/DB_CONNECTION/${{ secrets.DB_CONNECTION }}/g" .env
-      #     sed -i "s/DB_HOST/${{ secrets.DB_HOST }}/g" .env
-      #     sed -i "s/DB_PORT/${{ secrets.DB_PORT }}/g" .env
-      #     sed -i "s/DB_DATABASE/${{ secrets.DB_DATABASE }}/g" .env
-      #     sed -i "s/DB_USERNAME/${{ secrets.DB_USERNAME }}/g" .env
-      #     sed -i "s/DB_PASSWORD/${{ secrets.DB_PASSWORD }}/g" .env
+      - name: Replace environment variables in .env
+        run: |
+          sed -i "s/DB_CONNECTION/${{ secrets.DB_CONNECTION }}/g" .env
+          sed -i "s/DB_HOST/${{ secrets.DB_HOST }}/g" .env
+          sed -i "s/DB_PORT/${{ secrets.DB_PORT }}/g" .env
+          sed -i "s/DB_DATABASE/${{ secrets.DB_DATABASE }}/g" .env
+          sed -i "s/DB_USERNAME/${{ secrets.DB_USERNAME }}/g" .env
+          sed -i "s/DB_PASSWORD/${{ secrets.DB_PASSWORD }}/g" .env
 
-      # - name: Print .env file
-      #   run: cat .env
+      - name: Print .env file
+        run: cat .env
       
       # - name: 🛠 Install Dependencies
       #   uses: php-actions/composer@v6

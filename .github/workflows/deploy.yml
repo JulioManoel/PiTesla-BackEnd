@@ -28,7 +28,7 @@ jobs:
 
       - name: 🔧 Replace environment variables in .env
         run: |
-          sed -i "s/APP_URL=.*/APP_URL=http://pitesla.juliomanoel.com/g" .env
+          sed -i "s/APP_URL=.*/APP_URL=pitesla.juliomanoel.com/g" .env
           sed -i "s/DB_CONNECTION=.*/DB_CONNECTION=${{ secrets.DB_CONNECTION }}/g" .env
           sed -i "s/DB_HOST=.*/DB_HOST=${{ secrets.DB_HOST }}/g" .env
           sed -i "s/DB_PORT=.*/DB_PORT=${{ secrets.DB_PORT }}/g" .env

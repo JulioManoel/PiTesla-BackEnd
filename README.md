@@ -7,4 +7,4 @@
 - Criar Model - php artisan make:model <name> (exemplo Carro)
 - Criar Controller - php artisan make:controller <name> (exemplo CarroController)
 
-- Rodar Servidor - php artisan serve
+- Rodar Servidor - php artisan serve 

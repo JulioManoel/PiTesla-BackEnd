@@ -15,10 +15,10 @@ jobs:
       #   with:
       #     php-version: '8.3.6'
       
-      # - name: 🚚 Get latest code
-      #   uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: 2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       # - name: ✔️ Validade comoposer.json and composer.lock
       #   run: composer validate --strict

@@ -38,20 +38,20 @@ class StudentRequest extends FormRequest
   public function messages(): array
   {
     return [
-      'name.required' => 'Name is required',
+      'name.required' => 'name is required',
       'name.string' => 'Name must be a string',
-      'dateBirth.required' => 'Date Birth is required',
+      'dateBirth.required' => 'dateBirth is required',
       'dateBirth.date' => 'Date Birth must be a date',
-      'experience.required' => 'Experience is required',
+      'experience.required' => 'experience is required',
       'experience.numeric' => 'Experience must be a numeric',
-      'coins.required' => 'Coins is required',
+      'coins.required' => 'coins is required',
       'coins.numeric' => 'coins must be a numeric',
-      'email.required' => 'Email is required',
+      'email.required' => 'email is required',
       'email.string' => 'Email must be a string',
-      'password.required' => 'Password is required',
+      'password.required' => 'password is required',
       'password.string' => 'Password must be a string',
-      'school_id.required' => 'School_id is required',
-      'school_id.exists' => 'School_id must exists',
+      'school_id.required' => 'school_id is required',
+      'school_id.exists' => 'School  must exists',
     ];
   }
 }

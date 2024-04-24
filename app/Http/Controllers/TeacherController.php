@@ -2,33 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Teacher;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StudentRequest;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $studant = Student::with(['school'])->get();
-        return response()->json($studant, 200);
+        $teacher = Teacher::with(['school'])->get();
+        return response()->json($teacher, 200);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StudentRequest $request)
+    public function store(Request $request)
     {
         DB::beginTransaction();
 
         try {
-            $studant = Student::create($request->all());
+            $teacher = Teacher::create($request->all());
 
             DB::commit();
-            return response()->json($studant, 201);
+            return response()->json($teacher, 201);
         } catch (\Throwable $e) {
             DB::rollBack();
             return response()->json(['message' => $e->getMessage()], 500);
@@ -40,25 +40,25 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        $studant = Student::with(['school'])->find($id);
-        return response()->json($studant, 200);
+        $teacher = Teacher::with(['school'])->find($id);
+        return response()->json($teacher, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         DB::beginTransaction();
 
         try {
-            $student = Student::find($id);
-            if (empty($student)) throw new \Exception('School not found', 404);
+            $teacher = Teacher::find($id);
+            if (empty($teacher)) throw new \Exception('Teacher not found', 404);
 
-            $student->update($request->all());
+            $teacher->update($request->all());
 
             DB::commit();
-            return response()->json($student, 200);
+            return response()->json($teacher, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
@@ -73,15 +73,15 @@ class StudentController extends Controller
         DB::beginTransaction();
 
         try {
-            $student = Student::find($id);
-            if (empty($student)) {
-                return response()->json(['message' => 'Student não encontrado'], 404);
+            $teacher = Teacher::find($id);
+            if (empty($teacher)) {
+                return response()->json(['message' => 'Teacher não encontrado'], 404);
             }
 
-            $student->delete();
+            $teacher->delete();
 
             DB::commit();
-            return response()->json($student, 200);
+            return response()->json($teacher, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);

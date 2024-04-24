@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('dataBirth');
+            $table->date('dateBirth');
             $table->string('email');
             $table->string('password');
             $table->foreignId('school_id')->nullable()->constrained('schools');

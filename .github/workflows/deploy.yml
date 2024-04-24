@@ -45,6 +45,12 @@ jobs:
       - name: 🔑 Generate application key
         run: php artisan key:generate
 
+      - name: 🔄 Migrate Fresh
+        run: php artisan migrate:fresh
+
+      - name: 🌱 Seeding
+        run: php artisan db:seed
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

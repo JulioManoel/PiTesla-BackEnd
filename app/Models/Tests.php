@@ -16,3 +16,4 @@ class Tests extends Model
         'description text',
     ];
 }
+

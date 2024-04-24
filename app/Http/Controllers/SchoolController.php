@@ -78,6 +78,8 @@ class SchoolController extends Controller
      */
     public function destroy(string $id)
     {
+        DB::beginTransaction();
+
         try {
             $school = School::find($id);
             if (empty($school)) {
@@ -85,8 +87,11 @@ class SchoolController extends Controller
             }
 
             $school->delete();
-            return response()->json(['message' => 'School deleted'], 200);
+
+            DB::commit();
+            return response()->json($school, 200);
         } catch (\Throwable $error) {
+            DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
         }
     }

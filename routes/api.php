@@ -3,8 +3,22 @@
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\DisciplineController;
+use App\Http\Controllers\ActivitieController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\Answer_OptionController;
+
 use Illuminate\Support\Facades\Route;
+
+Route::controller(LogController::class)->group(function () {
+  Route::get('/log', 'index');
+  Route::post('/log', 'store');
+  Route::get('/log/{id}', 'show');
+  Route::put('/log/{id}', 'update');
+  Route::delete('/log/{id}', 'destroy');
+});
 
 Route::controller(SchoolController::class)->group(function () {
   Route::get('/school', 'index');
@@ -30,10 +44,58 @@ Route::controller(TeacherController::class)->group(function () {
   Route::delete('/teacher/{id}', 'destroy');
 });
 
-Route::controller(LogController::class)->group(function () {
-  Route::get('/log', 'index');
-  Route::post('/log', 'store');
-  Route::get('/log/{id}', 'show');
-  Route::put('/log/{id}', 'update');
-  Route::delete('/log/{id}', 'destroy');
+Route::controller(DisciplineController::class)->group(function () {
+  Route::get('/disciplines', 'index');
+  Route::post('/disciplines', 'store');
+  Route::get('/disciplines/{id}', 'show');
+  Route::put('/disciplines/{id}', 'update');
+  Route::delete('/disciplines/{id}', 'destroy');
+});
+
+Route::controller(ActivitieController::class)->group(function () {
+  Route::get('/Activitie', 'index');
+  Route::post('/Activitie', 'store');
+  Route::get('/Activitie/{id}', 'show');
+  Route::put('/Activitie/{id}', 'update');
+  Route::delete('/Activitie/{id}', 'destroy');
+});
+
+Route::controller(CourseController::class)->group(function () {
+  Route::get('/Course', 'index');
+  Route::post('/Course', 'store');
+  Route::get('/Course/{id}', 'show');
+  Route::put('/Course/{id}', 'update');
+  Route::delete('/Course/{id}', 'destroy');
+});
+
+Route::controller(ActivitieController::class)->group(function () {
+  Route::get('/Activitie', 'index');
+  Route::post('/Activitie', 'store');
+  Route::get('/Activitie/{id}', 'show');
+  Route::put('/Activitie/{id}', 'update');
+  Route::delete('/Activitie/{id}', 'destroy');
+});
+
+Route::controller(TestController::class)->group(function () {
+  Route::get('/test', 'index');
+  Route::post('/test', 'store');
+  Route::get('/test/{id}', 'show');
+  Route::put('/test/{id}', 'update');
+  Route::delete('/test/{id}', 'destroy');
+});
+
+Route::controller(ExerciseController::class)->group(function () {
+  Route::get('/exercise', 'index');
+  Route::post('/exercise', 'store');
+  Route::get('/exercise/{id}', 'show');
+  Route::put('/exercise/{id}', 'update');
+  Route::delete('/exercise/{id}', 'destroy');
+});
+
+Route::controller(Answer_OptionController::class)->group(function () {
+  Route::get('/Answer_Option', 'index');
+  Route::post('/Answer_Option', 'store');
+  Route::get('/Answer_Option/{id}', 'show');
+  Route::put('/Answer_Option/{id}', 'update');
+  Route::delete('/Answer_Option/{id}', 'destroy');
 });

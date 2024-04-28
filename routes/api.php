@@ -1,10 +1,17 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
+
+Route::controller(AuthController::class)->group(function () {
+  Route::get('/me', 'me');
+  Route::post('/login', 'login');
+});
 
 Route::controller(SchoolController::class)->group(function () {
   Route::get('/school', 'index');

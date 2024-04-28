@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StudentRequest;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -25,6 +26,7 @@ class StudentController extends Controller
         DB::beginTransaction();
 
         try {
+            $request['password'] = Hash::make($request->password);
             $studant = Student::create($request->all());
 
             DB::commit();

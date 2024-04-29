@@ -15,4 +15,12 @@ class AnswerdOptions extends Model
         'name',
         'correct',
     ];
+    protected $hidden = [
+        'exercise_id'
+    ];
+
+    public function exercise(): BelongsTo
+    {
+        return $this->belongsTo(Exercise::class);
+    }
 }

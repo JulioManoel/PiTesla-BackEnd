@@ -15,4 +15,12 @@ class Exercise extends Model
         'name',
         'description',
     ];
+    protected $hidden = [
+        'activity_id'
+    ];
+
+    public function test(): BelongsTo
+    {
+        return $this->belongsTo(Test::class);
+    }
 }

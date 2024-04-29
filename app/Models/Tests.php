@@ -15,5 +15,13 @@ class Tests extends Model
         'name',
         'description text',
     ];
+    protected $hidden = [
+        'activity_id'
+    ];
+
+    public function activitie(): BelongsTo
+    {
+        return $this->belongsTo(Activitie::class);
+    }
 }
 

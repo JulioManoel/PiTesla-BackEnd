@@ -16,4 +16,12 @@ class Activitie extends Model
         'video',
         'description text',
     ];
+    protected $hidden = [
+        'course_id'
+    ];
+
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

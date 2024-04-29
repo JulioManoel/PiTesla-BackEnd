@@ -15,4 +15,12 @@ class Discipline extends Model
         'name',
         'description',
     ];
+    protected $hidden = [
+        'school_id'
+    ];
+
+    public function school(): BelongsTo
+    {
+        return $this->belongsTo(School::class);
+    }
 }

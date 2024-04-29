@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
@@ -9,7 +11,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\Answer_OptionController;
-
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(LogController::class)->group(function () {
@@ -18,6 +20,11 @@ Route::controller(LogController::class)->group(function () {
   Route::get('/log/{id}', 'show');
   Route::put('/log/{id}', 'update');
   Route::delete('/log/{id}', 'destroy');
+});
+
+Route::controller(AuthController::class)->group(function () {
+  Route::get('/me', 'me');
+  Route::post('/login', 'login');
 });
 
 Route::controller(SchoolController::class)->group(function () {

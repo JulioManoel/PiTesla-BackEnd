@@ -17,8 +17,9 @@ return new class extends Migration
             $table->date('dateBirth');
             $table->integer('experience');
             $table->integer('coins');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
+            $table->rememberToken();
             $table->foreignId('school_id')->nullable()->constrained('schools');
             $table->timestamps();
         });

@@ -15,4 +15,12 @@ class Course extends Model
         'name',
         'description',
     ];
+    protected $hidden = [
+        'teacher_id'
+    ];
+
+    public function teacher(): BelongsTo
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 }

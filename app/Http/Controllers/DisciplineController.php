@@ -13,7 +13,7 @@ class DisciplineController extends Controller
      */
     public function index()
     {
-        $disciplines = Discipline::with(['teacher'])->get();
+        $disciplines = Discipline::with(['school'])->get();
         return response()->json($disciplines, 200);
     }
 
@@ -40,7 +40,7 @@ class DisciplineController extends Controller
      */
     public function show(string $id)
     {
-        $disciplines = Discipline::with(['teacher'])->find($id);
+        $disciplines = Discipline::with(['school'])->find($id);
         return response()->json($disciplines, 200);
     }
 

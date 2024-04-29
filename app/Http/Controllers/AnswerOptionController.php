@@ -6,7 +6,7 @@ use App\Models\Answer_Option;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class TeacherController extends Controller
+class AnswerOptionController extends Controller
 {
     /**
      * Display a listing of the resource.

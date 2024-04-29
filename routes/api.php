@@ -69,10 +69,10 @@ Route::controller(CourseController::class)->group(function () {
 
 Route::controller(ActivitieController::class)->group(function () {
   Route::get('/activitie', 'index');
-  Route::post('/Activitie', 'store');
-  Route::get('/Activitie/{id}', 'show');
-  Route::put('/Activitie/{id}', 'update');
-  Route::delete('/Activitie/{id}', 'destroy');
+  Route::post('/activitie', 'store');
+  Route::get('/activitie/{id}', 'show');
+  Route::put('/activitie/{id}', 'update');
+  Route::delete('/activitie/{id}', 'destroy');
 });
 
 Route::controller(TestController::class)->group(function () {
@@ -92,9 +92,9 @@ Route::controller(ExerciseController::class)->group(function () {
 });
 
 Route::controller(AnswerOptionController::class)->group(function () {
-  Route::get('/Answer_Option', 'index');
-  Route::post('/Answer_Option', 'store');
-  Route::get('/Answer_Option/{id}', 'show');
-  Route::put('/Answer_Option/{id}', 'update');
-  Route::delete('/Answer_Option/{id}', 'destroy');
+  Route::get('/answer_Option', 'index');
+  Route::post('/answer_Option', 'store');
+  Route::get('/answer_Option/{id}', 'show');
+  Route::put('/answer_Option/{id}', 'update');
+  Route::delete('/answer_Option/{id}', 'destroy');
 });

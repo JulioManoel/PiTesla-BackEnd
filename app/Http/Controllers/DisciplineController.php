@@ -40,8 +40,16 @@ class DisciplineController extends Controller
      */
     public function show(string $id)
     {
-        $disciplines = Discipline::with(['school'])->find($id);
-        return response()->json($disciplines, 200);
+        try {
+            $school = Discipline::find($id);
+            if (empty($discipline)) {
+                throw new \Exception('School not found', 404);
+            }
+
+            return response()->json($discipline, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**

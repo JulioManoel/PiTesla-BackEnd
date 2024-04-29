@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Discipline extends Model
 {
@@ -14,6 +15,7 @@ class Discipline extends Model
     protected $fillable = [
         'name',
         'description',
+        'school_id',
     ];
     protected $hidden = [
         'school_id'

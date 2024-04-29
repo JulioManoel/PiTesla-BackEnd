@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('disciplines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('decription')->nullable();
+            $table->text('description')->nullable();
             $table->foreignId('school_id')->constrained('schools');
             $table->timestamps();
         });

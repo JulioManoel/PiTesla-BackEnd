@@ -68,15 +68,15 @@ Route::controller(ActivitieController::class)->group(function () {
 });
 
 Route::controller(CourseController::class)->group(function () {
-  Route::get('/Course', 'index');
-  Route::post('/Course', 'store');
-  Route::get('/Course/{id}', 'show');
-  Route::put('/Course/{id}', 'update');
-  Route::delete('/Course/{id}', 'destroy');
+  Route::get('/course', 'index');
+  Route::post('/course', 'store');
+  Route::get('/course/{id}', 'show');
+  Route::put('/course/{id}', 'update');
+  Route::delete('/course/{id}', 'destroy');
 });
 
 Route::controller(ActivitieController::class)->group(function () {
-  Route::get('/Activitie', 'index');
+  Route::get('/activitie', 'index');
   Route::post('/Activitie', 'store');
   Route::get('/Activitie/{id}', 'show');
   Route::put('/Activitie/{id}', 'update');

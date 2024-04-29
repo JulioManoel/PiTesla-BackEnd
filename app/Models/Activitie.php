@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Activitie extends Model
 {
@@ -15,6 +16,7 @@ class Activitie extends Model
         'name',
         'video',
         'description text',
+        'course_id',
     ];
     protected $hidden = [
         'course_id'

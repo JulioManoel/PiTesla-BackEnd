@@ -10,7 +10,7 @@ use App\Http\Controllers\ActivitieController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ExerciseController;
-use App\Http\Controllers\Answer_OptionController;
+use App\Http\Controllers\AnswerOptionController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,14 +59,6 @@ Route::controller(DisciplineController::class)->group(function () {
   Route::delete('/disciplines/{id}', 'destroy');
 });
 
-Route::controller(ActivitieController::class)->group(function () {
-  Route::get('/Activitie', 'index');
-  Route::post('/Activitie', 'store');
-  Route::get('/Activitie/{id}', 'show');
-  Route::put('/Activitie/{id}', 'update');
-  Route::delete('/Activitie/{id}', 'destroy');
-});
-
 Route::controller(CourseController::class)->group(function () {
   Route::get('/course', 'index');
   Route::post('/course', 'store');
@@ -99,7 +91,7 @@ Route::controller(ExerciseController::class)->group(function () {
   Route::delete('/exercise/{id}', 'destroy');
 });
 
-Route::controller(Answer_OptionController::class)->group(function () {
+Route::controller(AnswerOptionController::class)->group(function () {
   Route::get('/Answer_Option', 'index');
   Route::post('/Answer_Option', 'store');
   Route::get('/Answer_Option/{id}', 'show');

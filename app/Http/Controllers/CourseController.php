@@ -13,7 +13,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $course = Course::with(['discipline'])->get();
+        $course = Course::with(['discipline', 'teacher'])->get();
         return response()->json($course, 200);
     }
 
@@ -40,8 +40,16 @@ class CourseController extends Controller
      */
     public function show(string $id)
     {
-        $course = Course::with(['discipline'])->find($id);
-        return response()->json($course, 200);
+        try {
+            $course = Course::find($id);
+            if (empty($course)) {
+                throw new \Exception('Course not found', 404);
+            }
+
+            return response()->json($course, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**
@@ -75,7 +83,7 @@ class CourseController extends Controller
         try {
             $course = Course::find($id);
             if (empty($course)) {
-                return response()->json(['message' => 'Course não encontrado'], 404);
+                return response()->json(['message' => 'Course not found'], 404);
             }
 
             $course->delete();

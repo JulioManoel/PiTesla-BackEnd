@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\SchoolController;
@@ -14,17 +13,17 @@ use App\Http\Controllers\AnswerOptionController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
+Route::controller(AuthController::class)->group(function () {
+  Route::get('/me', 'me');
+  Route::post('/login', 'login');
+});
+
 Route::controller(LogController::class)->group(function () {
   Route::get('/log', 'index');
   Route::post('/log', 'store');
   Route::get('/log/{id}', 'show');
   Route::put('/log/{id}', 'update');
   Route::delete('/log/{id}', 'destroy');
-});
-
-Route::controller(AuthController::class)->group(function () {
-  Route::get('/me', 'me');
-  Route::post('/login', 'login');
 });
 
 Route::controller(SchoolController::class)->group(function () {
@@ -92,9 +91,9 @@ Route::controller(ExerciseController::class)->group(function () {
 });
 
 Route::controller(AnswerOptionController::class)->group(function () {
-  Route::get('/answer_Option', 'index');
-  Route::post('/answer_Option', 'store');
-  Route::get('/answer_Option/{id}', 'show');
-  Route::put('/answer_Option/{id}', 'update');
-  Route::delete('/answer_Option/{id}', 'destroy');
+  Route::get('/answerOption', 'index');
+  Route::post('/answerOption', 'store');
+  Route::get('/answerOption/{id}', 'show');
+  Route::put('/answerOption/{id}', 'update');
+  Route::delete('/answerOption/{id}', 'destroy');
 });

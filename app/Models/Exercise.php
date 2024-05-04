@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Exercise extends Model
 {
@@ -15,14 +16,20 @@ class Exercise extends Model
     protected $fillable = [
         'name',
         'description',
-        'activity_id',
+        'test_id',
     ];
+    
     protected $hidden = [
-        'activity_id'
+        'test_id'
     ];
 
     public function test(): BelongsTo
     {
-        return $this->belongsTo(Exercise::class);
+        return $this->belongsTo(Test::class);
+    }
+
+    public function answersOptions(): HasMany
+    {
+        return $this->hasMany(Answer_Option::class);
     }
 }

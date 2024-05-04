@@ -13,7 +13,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $test = Test::with(['activitie'])->get();
+        $test = Test::with(['activitie', 'exercises'])->get();
         return response()->json($test, 200);
     }
 
@@ -40,8 +40,16 @@ class TestController extends Controller
      */
     public function show(string $id)
     {
-        $test = Test::with(['activitie'])->find($id);
-        return response()->json($test, 200);
+        try {
+            $test = Test::with(['activitie', 'exercises'])->find($id);
+            if (empty($test)) {
+                throw new \Exception('Test not found', 404);
+            }
+
+            return response()->json($test, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**

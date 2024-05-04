@@ -13,7 +13,7 @@ class ExerciseController extends Controller
      */
     public function index()
     {
-        $exercise = Exercise::with(['test'])->get();
+        $exercise = Exercise::with(['test', 'answersOptions'])->get();
         return response()->json($exercise, 200);
     }
 
@@ -40,8 +40,16 @@ class ExerciseController extends Controller
      */
     public function show(string $id)
     {
-        $exercise = Exercise::with(['test'])->find($id);
-        return response()->json($exercise, 200);
+        try {
+            $exercise = Exercise::with(['test', 'answersOptions'])->find($id);
+            if (empty($exercise)) {
+                throw new \Exception('Exercise not found', 404);
+            }
+
+            return response()->json($exercise, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('descripition')->nullable();
-            $table->foreignId('activity_id')->nullable()->constrained('activities');
+            $table->text('description')->nullable();
+            $table->foreignId('test_id')->nullable()->constrained('tests');
             $table->timestamps();
         });
     }

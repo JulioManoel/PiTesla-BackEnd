@@ -40,8 +40,16 @@ class ActivitieController extends Controller
      */
     public function show(string $id)
     {
-        $activitie = Activitie::with(['course'])->find($id);
-        return response()->json($activitie, 200);
+        try {
+            $activitie = Activitie::with(['course'])->find($id);
+            if (empty($activitie)) {
+                throw new \Exception('Activitie not found', 404);
+            }
+
+            return response()->json($activitie, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**

@@ -13,7 +13,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        $schools = School::all();
+        $schools = School::with(['students', 'teachers', 'disciplines'])->get();
         return response()->json($schools, 200);
     }
 
@@ -41,7 +41,7 @@ class SchoolController extends Controller
     public function show(string $id)
     {
         try {
-            $school = School::find($id);
+            $school = School::with(['students', 'teachers', 'disciplines'])->find($id);
             if (empty($school)) {
                 throw new \Exception('School not found', 404);
             }

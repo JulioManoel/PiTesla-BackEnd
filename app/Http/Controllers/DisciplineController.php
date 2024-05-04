@@ -41,9 +41,9 @@ class DisciplineController extends Controller
     public function show(string $id)
     {
         try {
-            $school = Discipline::find($id);
+            $discipline = Discipline::find($id);
             if (empty($discipline)) {
-                throw new \Exception('School not found', 404);
+                throw new \Exception('Discipline not found', 404);
             }
 
             return response()->json($discipline, 200);

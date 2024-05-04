@@ -8,4 +8,6 @@
 - Criar Controller - php artisan make:controller <name> (exemplo CarroController)
   
 - Rodar Servidor - php artisan serve 
+- Seeding - php artisan db:seed
 
+- Migrate + Seeding - php artisan migrate:fresh --seed

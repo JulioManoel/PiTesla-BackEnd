@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Teacher;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class TeacherController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $teacher = Teacher::with(['school'])->get();
-        return response()->json($teacher, 200);
+        $course = Course::with(['discipline', 'teacher'])->get();
+        return response()->json($course, 200);
     }
 
     /**
@@ -26,11 +25,10 @@ class TeacherController extends Controller
         DB::beginTransaction();
 
         try {
-            $request['password'] = Hash::make($request->password);
-            $teacher = Teacher::create($request->all());
+            $course = Course::create($request->all());
 
             DB::commit();
-            return response()->json($teacher, 201);
+            return response()->json($course, 201);
         } catch (\Throwable $e) {
             DB::rollBack();
             return response()->json(['message' => $e->getMessage()], 500);
@@ -43,12 +41,12 @@ class TeacherController extends Controller
     public function show(string $id)
     {
         try {
-            $teacher = Teacher::with(['school'])->find($id);
-            if (empty($teacher)) {
-                throw new \Exception('Teacher not found', 404);
+            $course = Course::find($id);
+            if (empty($course)) {
+                throw new \Exception('Course not found', 404);
             }
 
-            return response()->json($teacher, 200);
+            return response()->json($course, 200);
         } catch (\Throwable $error) {
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
         }
@@ -62,13 +60,13 @@ class TeacherController extends Controller
         DB::beginTransaction();
 
         try {
-            $teacher = Teacher::find($id);
-            if (empty($teacher)) throw new \Exception('Teacher not found', 404);
+            $course = Course::find($id);
+            if (empty($course)) throw new \Exception('Course not found', 404);
 
-            $teacher->update($request->all());
+            $course->update($request->all());
 
             DB::commit();
-            return response()->json($teacher, 200);
+            return response()->json($course, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
@@ -83,15 +81,15 @@ class TeacherController extends Controller
         DB::beginTransaction();
 
         try {
-            $teacher = Teacher::find($id);
-            if (empty($teacher)) {
-                return response()->json(['message' => 'Teacher não encontrado'], 404);
+            $course = Course::find($id);
+            if (empty($course)) {
+                return response()->json(['message' => 'Course not found'], 404);
             }
 
-            $teacher->delete();
+            $course->delete();
 
             DB::commit();
-            return response()->json($teacher, 200);
+            return response()->json($course, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);

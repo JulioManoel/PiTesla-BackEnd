@@ -5,31 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Course extends Model
+class Test extends Model
 {
     use HasFactory;
-    protected $table = 'courses';
+    protected $table = 'tests';
     protected $primaryKey = 'id';
     
     protected $fillable = [
         'name',
         'description',
-        'teacher_id',
-        'discipline_id'
+        'activity_id',
     ];
+    
     protected $hidden = [
-        'teacher_id',
-        'discipline_id'
+        'activity_id'
     ];
 
-    public function teacher(): BelongsTo
+    public function activitie(): BelongsTo
     {
-        return $this->belongsTo(Teacher::class);
+        return $this->belongsTo(Activitie::class);
     }
 
-    public function discipline(): BelongsTo
+    public function exercises(): HasMany
     {
-        return $this->belongsTo(Discipline::class);
+        return $this->hasMany(Exercise::class);
     }
 }
+

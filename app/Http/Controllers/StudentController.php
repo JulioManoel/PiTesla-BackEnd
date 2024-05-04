@@ -42,8 +42,16 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        $studant = Student::with(['school'])->find($id);
-        return response()->json($studant, 200);
+        try {
+            $studant = Student::with(['school'])->find($id);
+            if (empty($studant)) {
+                throw new \Exception('Studant not found', 404);
+            }
+
+            return response()->json($studant, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**
@@ -55,7 +63,7 @@ class StudentController extends Controller
 
         try {
             $student = Student::find($id);
-            if (empty($student)) throw new \Exception('School not found', 404);
+            if (empty($student)) throw new \Exception('Student not found', 404);
 
             $student->update($request->all());
 

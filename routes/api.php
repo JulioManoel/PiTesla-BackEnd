@@ -11,8 +11,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\AnswerOptionController;
+use App\Http\Controllers\api\HomeController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
+
+Route::get("/home", [HomeController::class, 'index']);
 
 Route::controller(LogController::class)->group(function () {
   Route::get('/log', 'index');

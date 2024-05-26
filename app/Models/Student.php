@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use HasFactory;
     protected $table = 'students';
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
         'name',
         'dateBirth',
@@ -23,7 +23,9 @@ class Student extends Model
     ];
 
     protected $hidden = [
-        'school_id'
+        'school_id',
+        'password',
+        'remember_token',
     ];
 
     public function school(): BelongsTo

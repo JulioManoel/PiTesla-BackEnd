@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
 {
@@ -25,6 +26,7 @@ class TeacherController extends Controller
         DB::beginTransaction();
 
         try {
+            $request['password'] = Hash::make($request->password);
             $teacher = Teacher::create($request->all());
 
             DB::commit();
@@ -40,8 +42,16 @@ class TeacherController extends Controller
      */
     public function show(string $id)
     {
-        $teacher = Teacher::with(['school'])->find($id);
-        return response()->json($teacher, 200);
+        try {
+            $teacher = Teacher::with(['school'])->find($id);
+            if (empty($teacher)) {
+                throw new \Exception('Teacher not found', 404);
+            }
+
+            return response()->json($teacher, 200);
+        } catch (\Throwable $error) {
+            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
+        }
     }
 
     /**

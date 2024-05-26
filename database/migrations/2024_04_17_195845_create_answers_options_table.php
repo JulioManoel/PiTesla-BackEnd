@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('correct');
-            $table->foreignId('exercises_id')->constrained('exercises');
+            $table->foreignId('exercise_id')->constrained('exercises');
             $table->timestamps();
         });
     }

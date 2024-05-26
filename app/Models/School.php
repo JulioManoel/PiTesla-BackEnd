@@ -26,4 +26,8 @@ class School extends Model
         return $this->hasMany(Teacher::class);
     }
 
+    public function disciplines(): HasMany
+    {
+        return $this->hasMany(Discipline::class);
+    }
 }

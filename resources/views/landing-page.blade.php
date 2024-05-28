@@ -103,12 +103,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-container">
-                            <h1>APLICATIVO <br>PARA <span>ALUNOS E PROFESSORES</span></h1>
-                            <p class="p-large">Aprenda de maneira simples e ganhe recompensas!</p>
-                            <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-apple"></i>APP
-                                STORE</a>
-                            <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-google-play"></i>PLAY
-                                STORE</a>
+                            <h1>ESTUDE <br>PARA <span>GANHAR</span></h1>
+                            <p class="p-large">Para alunos do Ensino Fundamental ao Ensino Médio que acham que estudar ciências é chato</p>
+                            <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-google-play"></i>BAIXE O APK</a>
                         </div>
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
@@ -376,8 +373,7 @@
                     <div class="text-container">
                         <h2>Baixe <span class="blue">PiTesla</span></h2>
                         <p class="p-large">Eleve seu conhecimento enquanto ganha recompensas!</p>
-                        <a class="btn-solid-lg" href="#your-link"><i class="fab fa-apple"></i>APP STORE</a>
-                        <a class="btn-solid-lg" href="#your-link"><i class="fab fa-google-play"></i>PLAY STORE</a>
+                        <a class="btn-solid-lg" href="#your-link"><i class="fab fa-google-play"></i>BAIXE O APK</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
@@ -456,7 +452,7 @@
                 <div class="col-md-6">
                     <div class="footer-col">
                         <h4>Sobre PiTesla</h4>
-                        <p>Somos apaixonados por desenvolvimento e tecnologia</p>
+                        <p>A PiTesla transforma o ensino de ciências exatas com uma abordagem lúdica e personalizada. Inspiramos alunos do Ensino Fundamental ao Ensino Médio em matemática, física e química, preparando-os para um futuro de sucesso.</p>
                     </div>
                 </div> <!-- end of col -->
                 <div class="col-md-6">

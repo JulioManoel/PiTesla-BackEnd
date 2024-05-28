@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Free mobile app HTML landing page template to help you build a great online presence for your app which will convert visitors into users">
+    <meta name="description" content="Free mobile app HTML landing page template to help you build a great online presence for your app which will convert visitors into users">
     <meta name="author" content="Inovatik">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
@@ -18,6 +17,24 @@
     <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
     <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
     <meta property="og:type" content="article" />
+
+    <!-- Hotjar Tracking Code for PiTesla -->
+    <script>
+        (function(h, o, t, j, a, r) {
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {
+                hjid: 3778290,
+                hjsv: 6
+            };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script');
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
 
     <!-- Website Title -->
     <title>PiTesla</title>
@@ -57,8 +74,7 @@
         <a class="navbar-brand logo-image" href="index.html"><img src="../images/logo.svg" alt="alternative"></a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-awesome fas fa-bars"></span>
             <span class="navbar-toggler-awesome fas fa-times"></span>
         </button>
@@ -105,7 +121,7 @@
                         <div class="text-container">
                             <h1>ESTUDE <br>PARA <span>GANHAR</span></h1>
                             <p class="p-large">Para alunos do Ensino Fundamental ao Ensino Médio que acham que estudar ciências é chato</p>
-                            <a class="btn-solid-lg page-scroll" href="#your-link"><i class="fab fa-google-play"></i>BAIXE O APK</a>
+                            <a class="btn-solid-lg page-scroll" href="../apk/app-release.apk"><i class="fab fa-google-play"></i>BAIXE O APK</a>
                         </div>
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
@@ -134,12 +150,10 @@
                 <!-- Tabs Links -->
                 <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab"
-                            aria-controls="tab-1" aria-selected="true"><i class="fas fa-cog"></i>PROFESSOR</a>
+                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-cog"></i>PROFESSOR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab"
-                            aria-controls="tab-2" aria-selected="false"><i class="fas fa-binoculars"></i>ALUNO</a>
+                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-binoculars"></i>ALUNO</a>
                     </li>
                 </ul>
                 <!-- end of tabs links -->
@@ -277,8 +291,7 @@
                                 <div class="text-area">
                                     <h3>Monitoring Tools Evaluation</h3>
                                     <p>Monitor the evolution of your finances and health state using tools integrated in
-                                        Leno. The generated real time reports can be filtered based on any <a
-                                            class="turquoise" href="#your-link">desired criteria</a>.</p>
+                                        Leno. The generated real time reports can be filtered based on any <a class="turquoise" href="#your-link">desired criteria</a>.</p>
                                 </div> <!-- end of text-area -->
                             </div> <!-- end of col-md-8 -->
                             <!-- end of text and icon cards area -->
@@ -357,8 +370,7 @@
                         <td>Well-structured code</td>
                     </tr>
                 </table>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
-                    href="#details">BACK</a>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#details">BACK</a>
             </div>
         </div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
@@ -373,7 +385,7 @@
                     <div class="text-container">
                         <h2>Baixe <span class="blue">PiTesla</span></h2>
                         <p class="p-large">Eleve seu conhecimento enquanto ganha recompensas!</p>
-                        <a class="btn-solid-lg" href="#your-link"><i class="fab fa-google-play"></i>BAIXE O APK</a>
+                        <a class="btn-solid-lg" href="../apk/app-release.apk"><i class="fab fa-google-play"></i>BAIXE O APK</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
@@ -399,8 +411,7 @@
                             Constantino Matucci, Sorocaba - SP, 18085-784</li>
                         <li><i class="fas fa-phone"></i><a class="blue" href="tel:003024630820">+55 (15) 3238-1188</a>
                         </li>
-                        <li><i class="fas fa-envelope"></i><a class="blue"
-                                href="mailto:office@leno.com">secretaria@facens.com</a></li>
+                        <li><i class="fas fa-envelope"></i><a class="blue" href="mailto:office@leno.com">secretaria@facens.com</a></li>
                     </ul>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -425,9 +436,7 @@
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group checkbox">
-                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>Li e aceito a <a
-                                href="privacy-policy.html">Política de privacidade</a> and <a
-                                href="terms-conditions.html">Termos e condições.</a>
+                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>Li e aceito a <a href="privacy-policy.html">Política de privacidade</a> and <a href="terms-conditions.html">Termos e condições.</a>
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
@@ -488,37 +497,38 @@
                                 <i class="fab fa-linkedin-in fa-stack-1x"></i>
                             </a>
                         </span>
-                    </div> 
+                    </div>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of footer -->  
+    </div> <!-- end of footer -->
     <!-- end of footer -->
 
 
-        <!-- Copyright -->
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p class="p-small">Copyright © Pi Tesla - Aplicação de aprendizado para alunos e professores</a>
-                        </p>
-                    </div> <!-- end of col -->
-                </div> <!-- enf of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of copyright -->
-        <!-- end of copyright -->
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © Pi Tesla - Aplicação de aprendizado para alunos e professores</a>
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
 
 
-        <!-- Scripts -->
-        <script src="../js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-        <script src="../js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-        <script src="../js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-        <script src="../js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-        <script src="../js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-        <script src="../js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-        <script src="../js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
-        <script src="../js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-        <script src="../js/scripts.js"></script> <!-- Custom scripts -->
+    <!-- Scripts -->
+    <script src="../js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="../js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="../js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="../js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="../js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="../js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="../js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="../js/scripts.js"></script> <!-- Custom scripts -->
 </body>
+
 </html>

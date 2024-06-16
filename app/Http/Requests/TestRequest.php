@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Contracts\IRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentRequest extends FormRequest implements IRequest
+class TestRequest extends FormRequest implements IRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -24,12 +24,10 @@ class StudentRequest extends FormRequest implements IRequest
   {
     return [
       'name' => 'required|string',
-      'dateBirth' => 'required|date',
-      'experience' => 'required|numeric',
-      'coins' => 'required|numeric',
+      'description' => 'string',
       'email' => 'required|string',
       'password' => 'required|string',
-      'school_id' => 'required|exists:schools,id'
+      'activity_id' => 'exists:activities,id'
     ];
   }
 
@@ -43,15 +41,10 @@ class StudentRequest extends FormRequest implements IRequest
       'name.string' => 'Name must be a string',
       'dateBirth.required' => 'dateBirth is required',
       'dateBirth.date' => 'Date Birth must be a date',
-      'experience.required' => 'experience is required',
-      'experience.numeric' => 'Experience must be a numeric',
-      'coins.required' => 'coins is required',
-      'coins.numeric' => 'coins must be a numeric',
       'email.required' => 'email is required',
       'email.string' => 'Email must be a string',
       'password.required' => 'password is required',
       'password.string' => 'Password must be a string',
-      'school_id.required' => 'school_id is required',
       'school_id.exists' => 'School  must exists',
     ];
   }

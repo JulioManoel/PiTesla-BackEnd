@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Contracts\IRequest;
 
 class ExerciseController extends Controller
 {
@@ -20,7 +20,7 @@ class ExerciseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -47,7 +47,7 @@ class ExerciseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Exercise $exercise)
+    public function update(IRequest $request, Exercise $exercise)
     {
         DB::beginTransaction();
 

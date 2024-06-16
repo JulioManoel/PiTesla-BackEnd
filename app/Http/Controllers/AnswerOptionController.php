@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer_Option;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Contracts\IRequest;
 
 class AnswerOptionController extends Controller
 {
@@ -20,7 +20,7 @@ class AnswerOptionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -47,7 +47,7 @@ class AnswerOptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Answer_Option $answer_option)
+    public function update(IRequest $request, Answer_Option $answer_option)
     {
         DB::beginTransaction();
 

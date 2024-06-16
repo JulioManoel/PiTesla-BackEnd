@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Contracts\IRequest;
 
 class CourseController extends Controller
 {
@@ -20,7 +20,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -46,7 +46,7 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Course $course)
+    public function update(IRequest $request, Course $course)
     {
         DB::beginTransaction();
 

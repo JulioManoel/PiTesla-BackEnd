@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\School;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\SchoolRequest;
+use App\Http\Requests\Contracts\IRequest;
 
 class SchoolController extends Controller
 {
@@ -20,7 +20,7 @@ class SchoolController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SchoolRequest $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -47,7 +47,7 @@ class SchoolController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SchoolRequest $request, School $school)
+    public function update(IRequest $request, School $school)
     {
         DB::beginTransaction();
 

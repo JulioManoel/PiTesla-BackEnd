@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StudentRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Contracts\IRequest;
 
 class StudentController extends Controller
 {
@@ -21,7 +21,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StudentRequest $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -49,7 +49,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, Student $student)
+    public function update(IRequest $request, Student $student)
     {
         DB::beginTransaction();
 

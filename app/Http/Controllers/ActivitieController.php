@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activitie;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Contracts\IRequest;
 
 class ActivitieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $activitie = Activitie::with(['course'])->get();
@@ -20,7 +17,7 @@ class ActivitieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(IRequest $request)
     {
         DB::beginTransaction();
 
@@ -47,7 +44,7 @@ class ActivitieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Activitie $activitie)
+    public function update(IRequest $request, Activitie $activitie)
     {
         DB::beginTransaction();
 

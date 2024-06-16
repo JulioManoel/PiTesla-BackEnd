@@ -38,35 +38,24 @@ class DisciplineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Discipline $discipline)
     {
-        try {
-            $discipline = Discipline::find($id);
-            if (empty($discipline)) {
-                throw new \Exception('Discipline not found', 404);
-            }
-
-            return response()->json($discipline, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $discipline->load(['school']);
+        return response()->json($discipline, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Discipline $discipline)
     {
         DB::beginTransaction();
 
         try {
-            $disciplines = Discipline::find($id);
-            if (empty($disciplines)) throw new \Exception('Discipline not found', 404);
-
-            $disciplines->update($request->all());
+            $discipline->update($request->all());
 
             DB::commit();
-            return response()->json($disciplines, 200);
+            return response()->json($discipline, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
@@ -76,20 +65,15 @@ class DisciplineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Discipline $discipline)
     {
         DB::beginTransaction();
 
         try {
-            $disciplines = Discipline::find($id);
-            if (empty($disciplines)) {
-                return response()->json(['message' => 'Discipline não encontrado'], 404);
-            }
-
-            $disciplines->delete();
+            $discipline->delete();
 
             DB::commit();
-            return response()->json($disciplines, 200);
+            return response()->json($discipline, 200);
         } catch (\Throwable $error) {
             DB::rollback();
             return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);

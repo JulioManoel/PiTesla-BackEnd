@@ -38,31 +38,20 @@ class ActivitieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Activitie $activitie)
     {
-        try {
-            $activitie = Activitie::with(['course'])->find($id);
-            if (empty($activitie)) {
-                throw new \Exception('Activitie not found', 404);
-            }
-
-            return response()->json($activitie, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $activitie->load(['course']);
+        return response()->json($activitie, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Activitie $activitie)
     {
         DB::beginTransaction();
 
         try {
-            $activitie = Activitie::find($id);
-            if (empty($activitie)) throw new \Exception('Activitie not found', 404);
-
             $activitie->update($request->all());
 
             DB::commit();
@@ -76,16 +65,11 @@ class ActivitieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Activitie $activitie)
     {
         DB::beginTransaction();
 
         try {
-            $activitie = Activitie::find($id);
-            if (empty($activitie)) {
-                return response()->json(['message' => 'Activitie não encontrado'], 404);
-            }
-
             $activitie->delete();
 
             DB::commit();

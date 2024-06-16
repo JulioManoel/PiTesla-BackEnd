@@ -38,23 +38,20 @@ class AnswerOptionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Answer_Option $answer_option)
     {
-        $answer_option = Answer_Option::with(['exercise'])->find($id);
+        $answer_option->load(['exercise']);
         return response()->json($answer_option, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Answer_Option $answer_option)
     {
         DB::beginTransaction();
 
         try {
-            $answer_option = Answer_Option::find($id);
-            if (empty($answer_option)) throw new \Exception('Answer_Option not found', 404);
-
             $answer_option->update($request->all());
 
             DB::commit();
@@ -68,16 +65,11 @@ class AnswerOptionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Answer_Option $answer_option)
     {
         DB::beginTransaction();
 
         try {
-            $answer_option = Answer_Option::find($id);
-            if (empty($answer_option)) {
-                return response()->json(['message' => 'Answer_Option não encontrado'], 404);
-            }
-
             $answer_option->delete();
 
             DB::commit();

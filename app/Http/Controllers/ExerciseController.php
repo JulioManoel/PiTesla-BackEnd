@@ -38,31 +38,20 @@ class ExerciseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Exercise $exercise)
     {
-        try {
-            $exercise = Exercise::with(['test', 'answersOptions'])->find($id);
-            if (empty($exercise)) {
-                throw new \Exception('Exercise not found', 404);
-            }
-
-            return response()->json($exercise, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $exercise->load(['test', 'answersOptions']);
+        return response()->json($exercise, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Exercise $exercise)
     {
         DB::beginTransaction();
 
         try {
-            $exercise = Exercise::find($id);
-            if (empty($exercise)) throw new \Exception('Exercise not found', 404);
-
             $exercise->update($request->all());
 
             DB::commit();
@@ -76,16 +65,11 @@ class ExerciseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Exercise $exercise)
     {
         DB::beginTransaction();
 
         try {
-            $exercise = Exercise::find($id);
-            if (empty($exercise)) {
-                return response()->json(['message' => 'Exercise não encontrado'], 404);
-            }
-
             $exercise->delete();
 
             DB::commit();

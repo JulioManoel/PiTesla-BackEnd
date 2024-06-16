@@ -38,31 +38,20 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Test $test)
     {
-        try {
-            $test = Test::with(['activitie', 'exercises'])->find($id);
-            if (empty($test)) {
-                throw new \Exception('Test not found', 404);
-            }
-
-            return response()->json($test, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $test->load(['activitie', 'exercises']);
+        return response()->json($test, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Test $test)
     {
         DB::beginTransaction();
 
         try {
-            $test = Test::find($id);
-            if (empty($test)) throw new \Exception('Test not found', 404);
-
             $test->update($request->all());
 
             DB::commit();
@@ -76,16 +65,11 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Test $test)
     {
         DB::beginTransaction();
 
         try {
-            $test = Test::find($id);
-            if (empty($test)) {
-                return response()->json(['message' => 'Test não encontrado'], 404);
-            }
-
             $test->delete();
 
             DB::commit();

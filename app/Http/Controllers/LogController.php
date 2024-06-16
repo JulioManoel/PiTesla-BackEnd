@@ -38,31 +38,19 @@ class LogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Log $log)
     {
-        try {
-            $log = Log::find($id);
-            if (empty($log)) {
-                throw new \Exception('Log not found', 404);
-            }
-            
-            return response()->json($log, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        return response()->json($log, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Log $log)
     {
         DB::beginTransaction();
 
         try {
-            $log = Log::find($id);
-            if (empty($log)) throw new \Exception('Log not found', 404);
-
             $log->update($request->all());
 
             DB::commit();

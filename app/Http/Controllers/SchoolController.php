@@ -38,31 +38,20 @@ class SchoolController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(School $school)
     {
-        try {
-            $school = School::with(['students', 'teachers', 'disciplines'])->find($id);
-            if (empty($school)) {
-                throw new \Exception('School not found', 404);
-            }
-
-            return response()->json($school, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $school->load(['students', 'teachers', 'disciplines']);
+        return response()->json($school, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(SchoolRequest $request, string $id)
+    public function update(SchoolRequest $request, School $school)
     {
         DB::beginTransaction();
 
         try {
-            $school = School::find($id);
-            if (empty($school)) throw new \Exception('School not found', 404);
-
             $school->update($request->all());
 
             DB::commit();
@@ -76,16 +65,11 @@ class SchoolController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(School $school)
     {
         DB::beginTransaction();
 
         try {
-            $school = School::find($id);
-            if (empty($school)) {
-                throw new \Exception('School not found', 404);
-            }
-
             $school->delete();
 
             DB::commit();

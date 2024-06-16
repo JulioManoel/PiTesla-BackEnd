@@ -40,31 +40,20 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Student $studant)
     {
-        try {
-            $studant = Student::with(['school'])->find($id);
-            if (empty($studant)) {
-                throw new \Exception('Studant not found', 404);
-            }
-
-            return response()->json($studant, 200);
-        } catch (\Throwable $error) {
-            return response()->json(['message' => $error->getMessage()], $error->getCode() ?? 500);
-        }
+        $studant->load(['school']);
+        return response()->json($studant, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, string $id)
+    public function update(StudentRequest $request, Student $student)
     {
         DB::beginTransaction();
 
         try {
-            $student = Student::find($id);
-            if (empty($student)) throw new \Exception('Student not found', 404);
-
             $student->update($request->all());
 
             DB::commit();
@@ -78,16 +67,11 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Student $student)
     {
         DB::beginTransaction();
 
         try {
-            $student = Student::find($id);
-            if (empty($student)) {
-                return response()->json(['message' => 'Student não encontrado'], 404);
-            }
-
             $student->delete();
 
             DB::commit();

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Contracts\IRequest;
+use App\Http\Requests\IRequest;
 
 class TeacherController extends Controller
 {

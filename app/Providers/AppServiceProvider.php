@@ -2,12 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Requests\AnswerOptionRequest;
 use Illuminate\Http\Request;
-use App\Http\Requests\Contracts\IRequest;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Requests\{ActivitieRequest, CourseRequest, DisciplineRequest, ExerciseRequest, SchoolRequest, StudentRequest, TeacherRequest};
+use App\Http\Requests\{IRequest, ActivitieRequest, AnswerOptionRequest, CourseRequest, DisciplineRequest, ExerciseRequest, SchoolRequest, StudentRequest, TeacherRequest};
 
 class AppServiceProvider extends ServiceProvider
 {

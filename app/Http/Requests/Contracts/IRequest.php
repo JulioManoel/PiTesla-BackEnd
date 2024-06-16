@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Contracts;
+namespace App\Http\Requests;
 
 interface IRequest {
   public function all(): array;

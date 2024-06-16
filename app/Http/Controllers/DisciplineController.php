@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Discipline;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\Contracts\IRequest;
+use App\Http\Requests\IRequest;
 
 class DisciplineController extends Controller
 {

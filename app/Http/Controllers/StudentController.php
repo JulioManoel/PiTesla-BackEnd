@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Contracts\IRequest;
+use App\Http\Requests\IRequest;
 
-class StudentController extends Controller
+class StudentController extends Controller implements IController
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +40,10 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $studant)
+    public function show(Student $student)
     {
-        $studant->load(['school']);
-        return response()->json($studant, 200);
+        $student->load(['school']);
+        return response()->json($student, 200);
     }
 
     /**

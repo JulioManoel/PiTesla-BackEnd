@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DisciplineRequest extends FormRequest implements IRequest
+class DisciplineRequest extends FormRequest implements IValidatorRequest
 {
   /**
    * Determine if the user is authorized to make this request.
